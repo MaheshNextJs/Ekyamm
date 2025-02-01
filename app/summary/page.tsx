@@ -7,6 +7,22 @@ import Link from "next/link";
 const SummaryPage = () => {
   const { patientData } = usePatientContext();
 
+  if (!patientData) {
+    return (
+      <div
+        className="min-h-screen flex flex-col items-center justify-center"
+        style={{
+          background:
+            "linear-gradient(to bottom, transparent 0%, rgba(249, 204, 197, 1) 100%)",
+        }}
+      >
+        <p className="text-red-500 font-bold text-3xl mb-4">
+          Loading patient data...
+        </p>
+      </div>
+    );
+  }
+
   return (
     <div
       className="min-h-screen flex flex-col"
